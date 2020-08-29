@@ -53,10 +53,13 @@ git diff --namr-only - Exibe apenas o nome dos arquivos alterados
 git checkout arquivo.txt
 - Voltar arquivo que já foi adicionado na área de commit (staged)
 git reset HEAD arquivo.txt
-- Voltar arquivos já commitados
+- Voltar arquivos já commitados (o reset apaga o histórico das alterações)
 git reset --soft c564302e3eb67f3d93651577842ea54a3212c79c- Reverte as alterações posteriores ao commit desse hash e volta o arquivo com as alterações para a área de staged (antes de efetivar o commit)
 git reset --mixed c564302e3eb67f3d93651577842ea54a3212c79c - Reverte as alterações posteriores ao commit desse hash e volta o arquivo para antes da área de staged (precisa adicionar novamente o arquivo com git add para fazer commit de novo)
 git reset --hard c564302e3eb67f3d93651577842ea54a3212c79c - Reverte as alterações posteriores ao commit desse hash e apaga demais informações do commit (não volta o arquivo para a situação anterior ao commit, somente apaga as alterações já feitas [cuidado ao usar, pode dar problemas])
+
+- Revertendo alterações já commitadas semperder o que foi feito
+git revert c564302e3eb67f3d93651577842ea54a3212c79c - Desfazas alterações feitas na branch indicada. Faz um novo commit voltando a alteração. Mantém o histórico das alterações, tanto da primeira quanto do revert
 
 - Criando repositório remoto
 git remote add origin https://github.com/FabioJS/repositorio.git - Origin é o nome default dorepositório mas que pode ser alterado
@@ -101,3 +104,7 @@ git config --global alias.sts status - Cria o álias sts para o comando status n
 - Criando tags para versinamento
 git tag -a 1.0.0 -m "Versão 1.0.0" - '-a' indica que é uma notação
 git push origin master --tags - Adiciona as tags ao repositório
+git tag - Exibe as tags
+git tag -d 1.0.0 - Deleta a tag no repositório local
+git push origin :1.0.0 - Deleta a tag no repositório remoto
+git push origin :nome-branch - Apaga uma branch no repositório remoto
