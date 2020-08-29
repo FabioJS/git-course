@@ -1,6 +1,16 @@
 - Conectando ao github com chave ssh
 https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
 
+- Seguir passo a passo
+https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+As chaves ficam no diretório C:\Users\fabin/.ssh/
+- Serão criados os arquivos id_rsa e id_rsa.pub com a chave pública
+- Copiar a chave criada
+
+No github
+- Acessar settings > SSH and GPG keys e adicionar a chave criada
+
 - Estados dos arquivos no git
 untracked
 unmodified
@@ -47,3 +57,11 @@ git reset HEAD arquivo.txt
 git reset --soft c564302e3eb67f3d93651577842ea54a3212c79c- Reverte as alterações posteriores ao commit desse hash e volta o arquivo com as alterações para a área de staged (antes de efetivar o commit)
 git reset --mixed c564302e3eb67f3d93651577842ea54a3212c79c - Reverte as alterações posteriores ao commit desse hash e volta o arquivo para antes da área de staged (precisa adicionar novamente o arquivo com git add para fazer commit de novo)
 git reset --hard c564302e3eb67f3d93651577842ea54a3212c79c - Reverte as alterações posteriores ao commit desse hash e apaga demais informações do commit (não volta o arquivo para a situação anterior ao commit, somente apaga as alterações já feitas [cuidado ao usar, pode dar problemas])
+
+
+- Criando repositório remoto
+git remote add origin https://github.com/FabioJS/repositorio.git
+git branch -M master - Cria a branch para o repositório
+git push -u origin master - Envia os arquivos remotos para o repositório do github
+
+
